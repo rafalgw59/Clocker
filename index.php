@@ -1,6 +1,7 @@
 <!--Header-->
 <?php
 include_once 'header.php';
+//require_once '../helpers/View.php';
 ?>
 
 <h1 id="index-text">Użytkownik <?php
@@ -19,7 +20,11 @@ if (!isset($_SESSION['usersId'])) {
     include_once 'stats_for_everyone.php';
 } else {
     if ($_SESSION['usersLogin'] == 'admin')
-        include_once 'adminpanel.php';
+        //include_once 'adminpanel.php';
+        $newURL = 'adminpanel.php';
+        header('Location: ' . $newURL);
+
+
     if ($_SESSION['usersLogin'] != 'admin')
         include_once 'userpanel.php';
 }
