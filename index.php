@@ -4,14 +4,14 @@ include_once 'header.php';
 //require_once '../helpers/View.php';
 ?>
 
-<h1 id="index-text">Użytkownik <?php
+<h1 id="index-text"> <?php
     session_start();
     if (isset($_SESSION['usersId'])) {
         echo $_SESSION['usersLogin'];
     }
     else {
-        echo "niezalogowany";
-    }
+        echo '<h1 class="menu"> CLOCKER</h1>';
+        echo '<h3 class="menu"> Twój czas jest na wagę złota </h3>';    }
     ?> </h1>
 
 <!--Wyświetlanie ogólnych statystyk (jeżeli user nie jest zalogowany) lub panel usera (jeżeli user jest zalogowany)-->
@@ -43,3 +43,4 @@ if (!isset($_SESSION['usersId'])) {
 <?php
 include_once 'footer.php';
 ?>
+

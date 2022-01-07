@@ -2,9 +2,8 @@
 include_once 'header.php';
 ?>
 
-    <h1>Zarejestruj się!</h1>
-
-    <form method="post" action="controllers/Users.php">
+    <h1 style="color:white; text-align:center;">Zarejestruj się!</h1>
+    <form class="forms" method="post" action="controllers/Users.php">
         <input type="hidden" name="type" value="register">
 
         <label>
