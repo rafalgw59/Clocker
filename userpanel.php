@@ -1,2 +1,1 @@
-<h2> Panel usera </h2>
-
+<h2 style="text-align:center;"> Panel usera </h2>

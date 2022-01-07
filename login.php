@@ -1,7 +1,7 @@
 <?php
 include_once 'header.php';
 ?>
-<form method="post" action="controllers/Users.php">
+<form class="forms" method="post" action="controllers/Users.php">
     <input type="hidden" name="type" value="login">
     <label>
         Login: <br>
@@ -13,4 +13,7 @@ include_once 'header.php';
     </label> <br>
     <button type="submit" name="submit"> Zaloguj się!</button>
 </form>
-<h3> Nie masz jeszcze konta? <a href="register.php"> Zarejestruj się! </a></h3>
+<h3 style="padding-top: 30px; text-align:center;"> Nie masz jeszcze konta? <a href="register.php"> Zarejestruj się! </a></h3>
+<?php
+include_once 'footer.php'
+?>

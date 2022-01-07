@@ -1,5 +1,4 @@
-<a href="index.php"> Strona główna </a>
-
-<h1> Clocker </h1>
+<link rel="stylesheet" href="style.css"/>
+<button class="bar" onclick="window.location.href='index.php';"> Strona główna </button>
 
 
