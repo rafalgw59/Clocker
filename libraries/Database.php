@@ -5,7 +5,7 @@ class Database
     private $host = 'localhost';
     private $dbname = 'clocker';
     private $dbuser = 'root';
-    private $dbpass = 'rafiki';
+    private $dbpass = '';
 
     private $dbh;
     private $stmt;
