@@ -1,0 +1,139 @@
+h1.menu {
+  color: #f0cb00;
+  font-size:15vh;
+  font-family: 'Times New Roman', Times, serif;
+  text-align: center;
+}
+h3.menu {
+  color:white;
+  font-size:5vh;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+body{
+  background-image: url("marmur.webp");
+  margin: 0;
+  color:white;
+}
+#index-text {
+  color: white;
+  text-align: center;
+  margin-top: 50px;
+  font-size: 4rem;
+}
+
+ul {
+  list-style: none;
+  display: table;
+  margin: 0 auto;
+  padding: 0;
+  list-style-type: none;
+}
+
+li {
+  margin: 0 0 10px 0;
+  display: block;
+}
+
+button.menu {
+  font-weight: 600;
+	background-color: #595959;
+	border: none;
+  color: white;
+  padding: 15px 32px 32px;
+  text-align: center;
+  font-size: 2vh;
+	height: 5vh;
+	display: block;
+	cursor: pointer;
+	transition: 0.3s;
+  width: 100%;
+  table-layout: fixed;
+  border-collapse: collapse;
+
+}
+button.menu:hover {
+	background-color: #f0cb00;
+  color: white;
+}
+
+button.bar {
+  font-weight: 600;
+	background-color: #595959;
+	border: none;
+  color: white;
+  padding: 15px 32px 32px;
+  text-align: center;
+  font-size: 2vh;
+	height: 5vh;
+	display: block;
+	cursor: pointer;
+	transition: 0.3s;
+  width: auto;
+  table-layout: fixed;
+  border-collapse: collapse;
+
+}
+button.bar:hover {
+	background-color: #f0cb00;
+  color: rgb(221, 220, 215);
+}
+img {
+	display: block;
+	margin: auto;
+}
+
+form.forms {
+  background-color: rgb(248, 248, 229);
+  margin: 10px auto 10px auto;
+  max-width: 600px;
+  width: 100%;
+  padding: 20px 20px;
+}
+
+
+form.forms input {
+  width: 100%;
+  outline: none;
+  border: 1px solid black;
+  margin: 10px 0;
+  padding: 10px 10px 10px 5px;
+}
+
+form.forms button {
+  margin-top: 10px;
+  padding: 10px 20px;
+  cursor: pointer;
+}
+
+#footer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  background-color: #494949;
+  width: 100%;
+}
+
+#footer p {
+  color: rgb(185, 185, 185);
+  text-align: center;
+  font-size: 1.5rem;
+  padding: 5px 0;
+}
+
+
+@media (max-height: 800px) {
+  #footer {
+    position: static;
+    margin-top: 400px;
+  }
+  #footer p {
+    padding: 10px 0 100px 0;
+    margin: 0;
+  }
+}
+
+label{
+  color: black;
+}
