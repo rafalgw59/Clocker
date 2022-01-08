@@ -5,7 +5,11 @@ class Database
     private $host = 'localhost';
     private $dbname = 'clocker';
     private $dbuser = 'root';
-    private $dbpass = '';
+
+    // uncomment whatever password you are using
+    private $dbpass = 'root';
+    // private $dbpass = 'rafiki';
+    // private $dbpass = '';
 
     private $dbh;
     private $stmt;
