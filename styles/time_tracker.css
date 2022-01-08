@@ -1,0 +1,21 @@
+.tracker-wrapper {
+  margin: 50px 0;
+}
+.tracker-wrapper .tracker__task {
+  padding: 10px 0;
+  background: lightsalmon;
+  display: flex;
+  align-items: center;
+}
+.tracker-wrapper .tracker__task__control {
+  margin-right: 5px;
+}
+.tracker-wrapper .tracker__task__name {
+  margin-right: 5px;
+}
+.tracker-wrapper .tracker__task__name input {
+  width: 300px;
+  height: 25px;
+}
+
+/*# sourceMappingURL=time_tracker.css.map */
