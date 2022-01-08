@@ -49,22 +49,15 @@ class Admins
     public function searchUser(){
         $user_search_input=$_POST['userSearchInput'];
 
-        //$newURL = '../adminpanel.php';
-        //header('Location: ' . $newURL);
-
         $this->view('header_admin');
 
 
-
-
-        echo $user_search_input;
+        //echo $user_search_input;
         $rows = $this->admin->showSpecificUser($user_search_input);
-        print $rows;
+        //print $rows;
         $_POST['output']=$rows;
         $this->view('adminpanel',$rows);
 
-        //nowe url to adminpanel ale gdzies powinna byc przechowywana wartosc zwrocona ? moze
-        // wyswietlic wartosc zrocona wczesniej
 
 
     }
