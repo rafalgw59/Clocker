@@ -1,9 +1,11 @@
 <?php
 require_once '../libraries/Database.php';
+require_once '../config/config.php';
 
 class User
 {
     private $database;
+
 
     public function __construct()
     {
@@ -24,15 +26,15 @@ class User
         }
     }
 
-    public function register($userdata)
+    public function register($userdata): bool
     {
         $this->database->query('INSERT INTO users (usersFirstName, usersLastName, usersLogin, usersEmail, usersPassword) 
                                 VALUES (:usersfirstname, :userslastname, :userslogin, :usersemail, :userspassword)');
-        $this->database->bind(':usersfirstname', $userdata['usersFirstName']);
-        $this->database->bind(':userslastname', $userdata['usersLastName']);
-        $this->database->bind(':userslogin', $userdata['usersLogin']);
-        $this->database->bind(':usersemail', $userdata['usersEmail']);
-        $this->database->bind(':userspassword', $userdata['usersPassword']);
+        $this->database->bind(':usersfirstname', $userdata->getUsersFirstName());
+        $this->database->bind(':userslastname', $userdata->getUsersLastName());
+        $this->database->bind(':userslogin', $userdata->getUsersLogin());
+        $this->database->bind(':usersemail', $userdata->getUsersEmail());
+        $this->database->bind(':userspassword', $userdata->getUsersPassword());
 
         if ($this->database->execute()) {
             return true;
