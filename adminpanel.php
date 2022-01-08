@@ -9,6 +9,10 @@ include_once 'header_admin.php';
 <?php
 include_once 'show_specific_user.php';
 
+//print_r($_POST);
+//print_r($_SESSION);
+//print_r($_SERVER);
+
 
 /*
 if(isset($_POST['submit'])) {

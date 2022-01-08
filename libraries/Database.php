@@ -1,15 +1,13 @@
 <?php
 
+include "../config/config.php";
+
 class Database
 {
-    private $host = 'localhost';
-    private $dbname = 'clocker';
-    private $dbuser = 'root';
-
-    // uncomment whatever password you are using
-    private $dbpass = 'root';
-    // private $dbpass = 'rafiki';
-    // private $dbpass = '';
+    private $host = host;
+    private $dbname = dbname;
+    private $dbuser = dbuser;
+    private $dbpass = dbpass;
 
     private $dbh;
     private $stmt;
