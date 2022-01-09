@@ -176,8 +176,8 @@ class Users
         }
 
         //Sprawdzanie czy hasło ma minimum TYMCZASOWO 3 znaki TODO 8
-        if (strlen($userdata->getUsersPassword()) <= 8) {
-            checkInputs("register", "Hasło musi mieć więcej niż 8 znaków");
+        if (strlen($userdata->getUsersPassword()) <= 7) {
+            checkInputs("register", "Hasło musi mieć 8 lub więcej znaków");
             $newURL = '../register.php';
             header('Location: ' . $newURL);
             exit();
