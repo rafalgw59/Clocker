@@ -1,11 +1,13 @@
 <?php
 include_once 'header.php';
+include_once './helpers/validate_inputs.php';
 ?>
 
     <h1 style="color:white; text-align:center;">Zarejestruj się!</h1>
 
     <form class="forms" method="post" action="controllers/Users.php">
         <input type="hidden" name="type" value="register">
+
 
         <label>
             Imię: <br>
@@ -36,7 +38,7 @@ include_once 'header.php';
             Powtórz hasło: <br>
             <input type="password" name="repeatUsersPassword" maxlength="25" placeholder="Wpisz ponownie swoje haslo">
         </label> <br>
-
+        <?php checkInputs('register') ?>
         <button type="submit" name="submit"> Zarejestruj się!</button>
     </form>
 

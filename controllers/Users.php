@@ -1,6 +1,7 @@
 <?php
 require_once '../models/User.php';
 require_once '../helpers/session.php';
+require_once '../helpers/validate_inputs.php';
 
 class Users
 {
@@ -138,60 +139,73 @@ class Users
 
         foreach ($user_fields as $key => $item) {
             if (empty($user_fields[$key])) {
-                echo "Wszystkie pola muszą być wypełnione"; //TODO ładne wyświeltanie
-                $wdf = 1;
+                checkInputs("register", "Wszystkie dane muszą być wypełnione");
+                $newURL = '../register.php';
+                header('Location: ' . $newURL);
+                exit();
             }
+
         }
 
         if (preg_match('~[0-9]+~', $userdata->getUsersFirstName())) {
-            var_dump($userdata->getUsersFirstName());
-            echo "Nieprawidłowe imię - imię musi zawierać tylko litery";
-            $wdf = 1;
+            checkInputs("register", "Wprowadzono nieprawidłowe imię - imię może zawierać tylko litery");
+            $newURL = '../register.php';
+            header('Location: ' . $newURL);
+            exit();
         }
 
         if (preg_match('~[0-9]+~', $userdata->getUsersLastName())) {
-            echo "Nieprawidłowe nazwisko - nazwisko musi zawierać tylko litery";
-            $wdf = 1;
+            checkInputs("register", "Wprowadzono nieprawidłowe nazwisko - imię może zawierać tylko litery");
+            $newURL = '../register.php';
+            header('Location: ' . $newURL);
+            exit();
         }
 
         //Sprawdzanie czy login zawiera tylko litery i cyfry oraz czy jest dłuższy niż 3 znaki
         if (strlen($userdata->getUsersLogin()) <= 3) {
-            echo "Login musi mieć więcej niż 3 znaki\n"; //TODO ładne wyświetlanie
-            $wdf = 1;
+            checkInputs("register", "Login użytkownika nie może być krótszy niż 3 znaki");
+            $newURL = '../register.php';
+            header('Location: ' . $newURL);
+            exit();
 
         } elseif (!preg_match("/^[a-zA-Z0-9]*$/", $userdata->getUsersLogin())) {
-            echo "Login może zawierać tylko litery i cyfry\n"; //TODO ładne wyświetlanie
-            $wdf = 1;
+            checkInputs("register", "Login może zawierać tylko litery i cyfry");
+            $newURL = '../register.php';
+            header('Location: ' . $newURL);
+            exit();
         }
 
         //Sprawdzanie czy hasło ma minimum TYMCZASOWO 3 znaki TODO 8
-        if (strlen($userdata->getUsersPassword()) <= 3) {
-            echo "Hasło musi mieć więcej niż 8 znaków\n"; //TODO ładne wyświetlanie
-            $wdf = 1;
+        if (strlen($userdata->getUsersPassword()) <= 8) {
+            checkInputs("register", "Hasło musi mieć więcej niż 8 znaków");
+            $newURL = '../register.php';
+            header('Location: ' . $newURL);
+            exit();
         }
 
         //Weryfikacja adresu email
         if (!preg_match("/^[_a-zA-Z0-9-]+(\.[_a-zA-Z0-9-]+)*@[a-zA-Z0-9-]+(\.[a-zA-Z0-9-]+)*(\.[a-zA-Z]{2,})$/", $userdata->getUsersEmail())) {
-            echo "Niepoprawny adres e-mail"; //TODO ładne wyświetlanie
-            $wdf = 1;
+            checkInputs("register", "Wprowadzono niepoprawny adres e-mail");
+            $newURL = '../register.php';
+            header('Location: ' . $newURL);
+            exit();
         }
 
 
         //Sprawdzanie czy powtórzone hasło jest takie same
         $check_password = strval($userdata->getUsersPasswordRepeat());
         if (!preg_match("/^" . $check_password . "$/", $userdata->getUsersPassword())) {
-            echo "Hasla nie są zgodne"; //TODO ładne wyświetlanie
-            $wdf = 1;
+            checkInputs("register", "Hasła nie są zgodne");
+            $newURL = '../register.php';
+            header('Location: ' . $newURL);
+            exit();
         }
 
         //Sprawdzanie czy user juz istnieje
         if ($this->user->checkIfUserExists($userdata->getUsersLogin(), $userdata->getUsersEmail())) {
-            echo "User już istnieje";
-            $wdf = 1;
-        }
-
-        //Zeby wszystkie błędy były wyświetlane, a nie tylko pierwszy napotkany
-        if ($wdf == 1){
+            checkInputs("register", "Taki użytkownik już istnieje");
+            $newURL = '../register.php';
+            header('Location: ' . $newURL);
             exit();
         }
 
@@ -223,8 +237,10 @@ class Users
 
         foreach ($user_fields as $key => $item) {
             if (empty($user_fields[$key])) {
-                echo "Wszystkie pola muszą być wypełnione"; //TODO ładne wyświeltanie
-                $wdf = 1;
+                checkInputs("login", "Wszystkie dane muszą być wypełnione");
+                $newURL = '../login.php';
+                header('Location: ' . $newURL);
+                exit();
             }
         }
 
@@ -232,18 +248,21 @@ class Users
         if ($this->user->checkIfUserExists($user->getUsersLogin(), $user->getUsersPassword())) {
             echo "Użytkownik istnieje\n";
             $logged = $this->user->login($user->getUsersLogin(), $user->getUsersPassword());
-            //var_dump(($logged));
+
             if ($logged) {
                 $this->newSession($logged);
             } else {
-                echo "Podano złe hasło";
-                //TODO ładnie się ma wyswietlac
+                checkInputs("login", "Podano złe hasło");
+                $newURL = '../login.php';
+                header('Location: ' . $newURL);
                 exit();
             }
-        } //Jeśli użytkownika nie znaleziono...
+        }
+        //Jeśli użytkownika nie znaleziono...
         else {
-            echo "Nie ma takiego użytkownika";
-            //TODO ładnie się ma wyswietlac
+            checkInputs("login", "Nie ma takiego użytkownika");
+            $newURL = '../login.php';
+            header('Location: ' . $newURL);
             exit();
         }
     }
@@ -277,6 +296,7 @@ class Users
         header('Location: ' . $newURL);
     }
 }
+
 
 $user = new Users();
 
