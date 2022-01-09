@@ -31,14 +31,17 @@
       justify-content: center;
     }
     &__history {
-      display: grid;
-      grid-template-columns: 2fr 1fr;
-      row-gap: 5px;
       padding: 1.4rem 10em 1.4rem 3rem;
       background: rgba(52, 52, 52, 0.6);
       border-radius: 10px;
       border: 3px solid #3d3d3d;
       visibility: hidden;
+
+      & > div {
+        display: grid;
+        grid-template-columns: 2fr 1fr 0.5fr;
+        row-gap: 5px;
+      }
 
       &__name {
         font-weight: bold;
