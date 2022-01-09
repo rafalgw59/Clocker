@@ -14,6 +14,23 @@
                 00:00
             </div>
         </div>
+        <div class="tracker__past">
+            <div class="tracker__past__header">
+                <h2>Wcześniejsze pomiary:</h2>
+            </div>
+        </div>
+        <div class="tracker__history">
+        </div>
+    </div>
+</div>
+
+<div class="tracker-error-wrapper">
+    <div class="tracker-error">
+        <h2>Błąd!</h2>
+        <p class="tracker-error__content">
+
+        </p>
+        <button onclick="closeErrorModal()">Zamknij</button>
     </div>
 </div>
 
