@@ -1,31 +1,22 @@
-<?php
-include_once 'header_admin.php';
-?>
-<h2> Panel admina </h2>
+<div class="wrapper">
 
-<!-- -->
-<!--Szukanie usera po loginie -->
-<p>Szukanie usera:</p>
-<?php
-include_once 'show_specific_user.php';
+    <h2> Panel admina </h2>
 
-//print_r($_POST);
-//print_r($_SESSION);
-//print_r($_SERVER);
+    <!-- -->
+    <!--Szukanie usera po loginie -->
+    <p id="search-user-p">Szukanie usera:</p>
+    <?php
+    include_once 'show_specific_user.php';
 
+    if (isset($_POST['submit'])) {
+        if (empty($_POST['userSearchInput'])) {
+            echo "bro";
+        }
+        $searchInput = $_POST['userSearchInput'];
+        echo $searchInput;
 
-
-if(isset($_POST['submit'])) {
-    if (empty($_POST['userSearchInput'])) {
-        echo "bro";
     }
-    $searchInput = $_POST['userSearchInput'];
-    echo $searchInput;
-
-
-
-}
-?>
+    ?>
 
 <!-- Pokaz wszystkich userow -->
 <?php
@@ -34,3 +25,4 @@ include_once 'logout.php';
 ?>
 
 <!--Wglad w dane usera -->
+</div>

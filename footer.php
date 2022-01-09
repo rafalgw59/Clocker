@@ -1,3 +1,3 @@
 <div id='footer'>
-<p>Tutaj jest footer, w którym jeszcze nic nie ma</p>
+    <p id ="p-footer">Powered by DeltaSzwadronSuperCoolKomandoWilkówAlfa</p>
 </div>

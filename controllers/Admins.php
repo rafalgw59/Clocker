@@ -59,7 +59,7 @@ class Admins
 
         echo $user_search_input;
         $rows = $this->admin->showSpecificUser($user_search_input);
-        print $rows;
+        print_r($rows[0]);
         $_POST['output']=$rows;
         $this->view('adminpanel',$rows);
 
