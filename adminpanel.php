@@ -1,13 +1,12 @@
-<?php
-include_once 'header_admin.php';
-?>
-<h2> Panel admina </h2>
+<div class="wrapper">
 
-<!-- -->
-<!--Szukanie usera po loginie -->
-<p>Szukanie usera:</p>
-<?php
-include_once 'show_specific_user.php';
+    <h2> Panel admina </h2>
+
+    <!-- -->
+    <!--Szukanie usera po loginie -->
+    <p id="search-user-p">Szukanie usera:</p>
+    <?php
+    include_once 'show_specific_user.php';
 
 //print_r($_POST);
 //print_r($_SESSION);
@@ -56,3 +55,4 @@ include_once 'logout.php';
 ?>
 
 <!--Wglad w dane usera -->
+</div>

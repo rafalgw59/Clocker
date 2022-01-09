@@ -1,11 +1,25 @@
+body {
+  background-image: url("../marmur.webp");
+  margin: 0;
+  color: white;
+}
+
 .tracker-wrapper {
   margin: 50px 0;
+  margin-left: 10%;
+
 }
 .tracker-wrapper .tracker__task {
   padding: 10px 0;
-  background: lightsalmon;
+  background: rgba(52, 52, 52, 0.6);
   display: flex;
   align-items: center;
+  padding-left: 3rem;
+  width: 80%;
+  padding-top: 1.4rem;
+  padding-bottom: 1.4rem;
+  border-radius: 10px;
+  border: 3px solid #3d3d3d;
 }
 .tracker-wrapper .tracker__task__control {
   margin-right: 5px;

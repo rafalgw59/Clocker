@@ -1,139 +1,251 @@
-h1.menu {
-  color: #f0cb00;
-  font-size:15vh;
-  font-family: 'Times New Roman', Times, serif;
-  text-align: center;
-}
-h3.menu {
-  color:white;
-  font-size:5vh;
-  text-transform: uppercase;
-  text-align: center;
+html, body{
+    margin: 0 auto;
 }
 
-body{
-  background-image: url("marmur.webp");
-  margin: 0;
-  color:white;
+.wrapper{
+    width: 80%;
+    margin-left: 10%;
 }
+h1.menu {
+    color: #f0cb00;
+    font-size: 15vh;
+    font-family: 'Times New Roman', Times, serif;
+    text-align: center;
+}
+
+h3.menu {
+    color: white;
+    font-size: 5vh;
+    text-transform: uppercase;
+    text-align: center;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+body {
+    background-image: url("marmur.webp");
+    margin: 0;
+    color: white;
+}
+
 #index-text {
-  color: white;
-  text-align: center;
-  margin-top: 50px;
-  font-size: 4rem;
+    color: white;
+    text-align: center;
+    margin-top: 50px;
+    font-size: 4rem;
 }
 
 ul {
-  list-style: none;
-  display: table;
-  margin: 0 auto;
-  padding: 0;
-  list-style-type: none;
+    list-style: none;
+    display: table;
+    margin: 0 auto;
+    padding: 0;
 }
 
 li {
-  margin: 0 0 10px 0;
-  display: block;
+    margin: 0 0 10px 0;
+    display: block;
 }
 
 button.menu {
-  font-weight: 600;
-	background-color: #595959;
-	border: none;
-  color: white;
-  padding: 15px 32px 32px;
-  text-align: center;
-  font-size: 2vh;
-	height: 5vh;
-	display: block;
-	cursor: pointer;
-	transition: 0.3s;
-  width: 100%;
-  table-layout: fixed;
-  border-collapse: collapse;
+    font-weight: 600;
+    background-color: #595959;
+    border: none;
+    color: white;
+    padding: 15px 32px 32px;
+    text-align: center;
+    font-size: 2vh;
+    height: 5vh;
+    display: block;
+    cursor: pointer;
+    transition: 0.3s;
+    width: 100%;
+    table-layout: fixed;
+    border-collapse: collapse;
+    border-radius: 20px;
+    opacity: 90%;
+    margin-bottom: 1rem;
+    text-decoration: none;
 
 }
+
 button.menu:hover {
-	background-color: #f0cb00;
-  color: white;
+    background-color: #f0cb00;
+    color: white;
 }
 
 button.bar {
-  font-weight: 600;
-	background-color: #595959;
-	border: none;
-  color: white;
-  padding: 15px 32px 32px;
-  text-align: center;
-  font-size: 2vh;
-	height: 5vh;
-	display: block;
-	cursor: pointer;
-	transition: 0.3s;
-  width: auto;
-  table-layout: fixed;
-  border-collapse: collapse;
+    font-weight: 600;
+    background-color: transparent;
+    border: none;
+    color: white;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    text-align: center;
+    font-size: 2vh;
+    height: 2rem;
+    display: block;
+    cursor: pointer;
+    transition: 0.3s;
+    width: auto;
+    table-layout: fixed;
+    border-collapse: collapse;
+    margin-left: 2rem;
+    margin-right: 2rem;
+    text-shadow: 3px 3px 5px black;
+}
 
-}
 button.bar:hover {
-	background-color: #f0cb00;
-  color: rgb(221, 220, 215);
+    background-color: #f0cb00;
+    color: white;
 }
+
 img {
-	display: block;
-	margin: auto;
+    display: block;
+    margin: auto;
 }
 
 form.forms {
-  background-color: rgb(248, 248, 229);
-  margin: 10px auto 10px auto;
-  max-width: 600px;
-  width: 100%;
-  padding: 20px 20px;
+    background-color: rgba(182, 151, 72, 0.71);
+    zoom: 1;
+    margin: 10px auto 10px auto;
+    max-width: 600px;
+    width: 100%;
+    padding: 20px 20px;
+    border: 5px solid black;
+    border-radius: 10px;
+    font-weight: 500;
+    letter-spacing: 1px;
 }
 
+.header-div{
+    width: 100%;
+    height: 2rem;
+    background-color: #595959;
+    opacity: 80%;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 3rem;
+
+
+}
+
+#search-user-p{
+    font-size: 1.2rem;
+}
+
+#logout-button{
+    font-weight: 600;
+    background-color: #595959;
+    border: none;
+    color: white;
+    padding-right: 1rem;
+    padding-left: 1rem;
+    text-align: center;
+    font-size: 2vh;
+    height: 2rem;
+    display: block;
+    cursor: pointer;
+    transition: 0.3s;
+    width: auto;
+    table-layout: fixed;
+    border-collapse: collapse;
+    vertical-align: center;
+    margin-left: 2rem;
+    margin-right: 2rem;
+    text-shadow: 3px 3px 5px black;
+}
+
+#logout-button:hover{
+    background-color: #f0cb00;
+    color: white;
+}
 
 form.forms input {
-  width: 100%;
-  outline: none;
-  border: 1px solid black;
-  margin: 10px 0;
-  padding: 10px 10px 10px 5px;
+    width: 100%;
+    outline: none;
+    border: 1px solid black;
+    margin: 10px 0;
+    padding: 10px 10px 10px 5px;
 }
 
 form.forms button {
-  margin-top: 10px;
-  padding: 10px 20px;
-  cursor: pointer;
+    margin-top: 10px;
+    padding: 10px 20px;
+    cursor: pointer;
+
 }
 
 #footer {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  background-color: #494949;
-  width: 100%;
+    position: absolute;
+    bottom: 0;
+    background-color: #494949;
+    height: auto;
+    width: 100%;
+    opacity: 70%;
 }
 
-#footer p {
-  color: rgb(185, 185, 185);
-  text-align: center;
-  font-size: 1.5rem;
-  padding: 5px 0;
+#p-footer {
+    color: rgb(185, 185, 185);
+    text-align: center;
+    font-size: 1rem;
+    padding: 0 0 0 0;
+}
+
+#stats-for-everyone{
+    text-align: center;
+    font-family: Calibri;
+    font-weight: lighter;
+}
+label {
+    color: black;
+}
+.error-mess {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #ff6464;
+    margin-top: 1rem;
+    font-weight: 700;
+    text-shadow: 3px 3px 8px black;
 }
 
 
-@media (max-height: 800px) {
-  #footer {
-    position: static;
-    margin-top: 400px;
-  }
-  #footer p {
-    padding: 10px 0 100px 0;
-    margin: 0;
-  }
+@media only screen and (max-width: 1000px){
+    h1.menu{
+        font-size: 10vh;
+    }
+    h3.menu{
+        font-size: 3vh;
+    }
+    button.bar{
+        font-size: 1rem;
+    }
+
+}
+@media only screen and (max-width: 800px){
+    button.bar{
+        font-size: 0.7rem;
+        margin-left: 0;
+        margin-right: 0;
+    }
+    #logout-button{
+        font-size: 0.7rem;
+        margin-left: 0;
+        margin-right: 0;
+    }
+}
+@media only screen and (max-width:640px){
+    h1.menu{
+        font-size: 7vh;
+    }
+    #p-footer{
+        font-size: 0.5rem;
+    }
+    button.bar{
+        font-size: 0.7rem;
+        margin-left: 0;
+        margin-right: 0;
+    }
 }
 
-label{
-  color: black;
-}
