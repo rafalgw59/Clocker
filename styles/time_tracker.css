@@ -1,23 +1,15 @@
-body {
-  background-image: url("../marmur.webp");
-  margin: 0;
-  color: white;
-}
-
 .tracker-wrapper {
   margin: 50px 0;
-  margin-left: 10%;
-
+}
+.tracker-wrapper .tracker {
+  width: 80%;
+  margin: auto;
 }
 .tracker-wrapper .tracker__task {
-  padding: 10px 0;
   background: rgba(52, 52, 52, 0.6);
   display: flex;
   align-items: center;
-  padding-left: 3rem;
-  width: 80%;
-  padding-top: 1.4rem;
-  padding-bottom: 1.4rem;
+  padding: 1.4rem 0 1.4rem 3rem;
   border-radius: 10px;
   border: 3px solid #3d3d3d;
 }
@@ -30,6 +22,54 @@ body {
 .tracker-wrapper .tracker__task__name input {
   width: 300px;
   height: 25px;
+}
+.tracker-wrapper .tracker__past {
+  margin-top: 50px;
+  display: none;
+  width: 100%;
+  justify-content: center;
+}
+.tracker-wrapper .tracker__history {
+  padding: 1.4rem 10em 1.4rem 3rem;
+  background: rgba(52, 52, 52, 0.6);
+  border-radius: 10px;
+  border: 3px solid #3d3d3d;
+  visibility: hidden;
+}
+.tracker-wrapper .tracker__history > div {
+  display: grid;
+  grid-template-columns: 2fr 1fr 0.5fr;
+  row-gap: 5px;
+}
+.tracker-wrapper .tracker__history__name {
+  font-weight: bold;
+}
+
+.tracker-error-wrapper {
+  display: none;
+  position: absolute;
+  left: 50%;
+  top: 30%;
+  transform: translate(-50%, -50%);
+  width: 400px;
+  height: 250px;
+  background: #ff6464;
+  border: 5px solid #494949;
+}
+.tracker-error-wrapper .tracker-error__content {
+  padding: 10px;
+}
+.tracker-error-wrapper .tracker-error h2 {
+  text-align: center;
+}
+.tracker-error-wrapper .tracker-error button {
+  position: absolute;
+  bottom: 0;
+  height: 30px;
+  width: 100px;
+  left: 50%;
+  transform: translateX(-50%);
+  margin-bottom: 5px;
 }
 
 /*# sourceMappingURL=time_tracker.css.map */
