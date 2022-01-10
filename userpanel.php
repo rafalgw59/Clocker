@@ -4,5 +4,5 @@ include_once 'time_tracker.php'
 ?>
 
 <form method="post" action="remove_user.php">
-    <button type="submit">Usun konto</button>
+    <button>Usun konto</button>
 </form>

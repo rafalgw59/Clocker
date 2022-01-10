@@ -281,6 +281,11 @@ class Users
         header('Location: ' . $newURL);
     }
 
+    public function deleteUser($user_id){
+        $this->user->deleteUser($user_id);
+
+    }
+
     public function destroySession()
     {
         $session_attrs = array(
