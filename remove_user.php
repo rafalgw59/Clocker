@@ -17,7 +17,7 @@ class UserForRemoval {
         $user_id = $_SESSION['usersLogin'];
         $this->usrAdminModel->deleteUser($user_id);
         $this->userController->destroySession();
-        echo 'Konto zostało usunięte');
+        echo 'Konto zostało usunięte';
     }
 }
 
