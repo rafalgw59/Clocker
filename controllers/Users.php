@@ -281,6 +281,10 @@ class Users
         header('Location: ' . $newURL);
     }
 
+    public function deleteUser($user_id){
+        $this->user->deleteUser($user_id);
+    }
+
     public function destroySession()
     {
         $session_attrs = array(
@@ -305,6 +309,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $user->register();
     if ($_POST['type'] == 'login')
         $user->login();
+    if ($_POST['type'] == 'deleteMe') {
+        $user->deleteUser($_SESSION['usersId']);
+        $user->destroySession();
+    }
 }
 if (isset($_SESSION['usersId'])) {
     if ($_SERVER['REQUEST_METHOD'] == 'GET') {
