@@ -1,0 +1,5 @@
+RewriteEngine On
+RewriteRule . /front-controller.php [L]
+
+RewriteRule ^login$ index.php?action=login [L]
+#no cos nie działa

@@ -67,11 +67,13 @@ button.menu {
     margin-bottom: 1rem;
     text-decoration: none;
 
+
 }
 
 button.menu:hover {
     background-color: #f0cb00;
     color: white;
+    box-shadow: 0 0 10px white;
 }
 
 button.bar {
@@ -79,8 +81,8 @@ button.bar {
     background-color: transparent;
     border: none;
     color: white;
-    padding-left: 1rem;
-    padding-right: 1rem;
+    padding-left: 3rem;
+    padding-right: 3rem;
     text-align: center;
     font-size: 2vh;
     height: 2rem;
@@ -93,11 +95,14 @@ button.bar {
     margin-left: 2rem;
     margin-right: 2rem;
     text-shadow: 3px 3px 5px black;
+    letter-spacing: 2px;
 }
+
 
 button.bar:hover {
     background-color: #f0cb00;
     color: white;
+    box-shadow: 0 0 40px rgba(240, 203, 0, 0.59);
 }
 
 img {
@@ -126,6 +131,7 @@ form.forms {
     display: flex;
     justify-content: space-between;
     margin-bottom: 3rem;
+    box-shadow: 0 0 40px #858585;
 
 
 }
@@ -139,8 +145,8 @@ form.forms {
     background-color: #595959;
     border: none;
     color: white;
-    padding-right: 1rem;
-    padding-left: 1rem;
+    padding-right: 3rem;
+    padding-left: 3rem;
     text-align: center;
     font-size: 2vh;
     height: 2rem;
@@ -180,9 +186,11 @@ form.forms button {
     position: absolute;
     bottom: 0;
     background-color: #494949;
-    height: auto;
+    height: 3rem;
     width: 100%;
     opacity: 70%;
+    align-items: center;
+    vertical-align: center;
 }
 
 #p-footer {
@@ -210,6 +218,120 @@ label {
     text-shadow: 3px 3px 8px black;
 }
 
+#contact-wrapper{
+    text-align: center;
+    line-height: 30px;
+    padding-top: 4rem;
+    font-family: Lato, serif;
+    background-color: rgba(128, 128, 128, 0.23);
+    width: 80%;
+    margin: 0 auto;
+    padding-bottom: 4rem;
+    border-radius: 15px;
+    box-shadow: 0 0 20px white;
+}
+#contact-wrapper h1{
+    font-weight: 300;
+    font-size: 3rem;
+    color: #f0cb00;
+}
+#contact-wrapper h2{
+    font-weight: 100;
+    letter-spacing: 4px;
+}
+#contact-wrapper img{
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+}
+#about-us-wrapper{
+    text-align: left;
+    line-height: 30px;
+    padding-top: 2rem;
+    font-family: Lato, serif;
+    padding-left: 3rem;
+    background-color: rgba(128, 128, 128, 0.23);
+    width: 80%;
+    margin: 0 auto;
+    border-radius: 15px;
+    box-shadow: 0 0 20px white;
+
+}
+#about-us-wrapper h1{
+    font-weight: 300;
+    font-size: 3rem;
+    color: #f0cb00;
+}
+#about-us-wrapper h2{
+    font-weight: 100;
+    letter-spacing: 4px;
+}
+
+#about-us-wrapper img{
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+}
+
+#faq-wrapper{
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+    text-align: left;
+    line-height: 30px;
+    font-family: Lato, serif;
+    padding-left: 3rem;
+    width: 80%;
+    margin: 0 auto;
+    border-radius: 15px;
+    background-color: rgba(128, 128, 128, 0.23);
+    box-shadow: 0 0 20px white;
+}
+#faq-wrapper h1{
+    font-weight: 300;
+    font-size: 3rem;
+    color: #f0cb00;
+}
+#faq-wrapper h2{
+    font-weight: 10000;
+    letter-spacing: 2px;
+    font-size: 1.5rem;
+}
+#faq-wrapper h3{
+    font-weight: 100;
+    font-size: 1rem;
+    letter-spacing: 1px;
+    padding-left: 2rem;
+    font-family: "Sitka Small", monospace;
+}
+
+.some-settings-button{
+    font-weight: 600;
+    background-color: #595959;
+    border: none;
+    color: white;
+    padding: 15px 32px 32px;
+    text-align: center;
+    font-size: 2vh;
+    height: 5vh;
+    display: block;
+    cursor: pointer;
+    transition: 0.3s;
+    width: auto;
+    table-layout: fixed;
+    border-collapse: collapse;
+    border-radius: 20px;
+    opacity: 90%;
+    text-decoration: none;
+    margin: 0 auto 1.5rem;
+}
+
+.some-settings-button:hover {
+    background-color: #790202;
+    color: white;
+}
+input{
+    border-radius: 5px;
+}
+
+/* TODO Koniecznie zrobić responsywny time tracker*/
 
 @media only screen and (max-width: 1000px){
     h1.menu{
@@ -219,13 +341,13 @@ label {
         font-size: 3vh;
     }
     button.bar{
-        font-size: 1rem;
+        font-size: 0.8rem;
     }
 
 }
-@media only screen and (max-width: 800px){
+@media only screen and (max-width: 900px){
     button.bar{
-        font-size: 0.7rem;
+        font-size: 0.6rem;
         margin-left: 0;
         margin-right: 0;
     }
@@ -237,15 +359,24 @@ label {
 }
 @media only screen and (max-width:640px){
     h1.menu{
-        font-size: 7vh;
+        font-size: 4vh;
     }
-    #p-footer{
-        font-size: 0.5rem;
-    }
+
     button.bar{
-        font-size: 0.7rem;
+        font-size: 0.5rem;
         margin-left: 0;
         margin-right: 0;
+        padding-left: 0.2rem;
+        padding-right: 0.2rem;
+    }
+}
+@media only screen and (max-width:500px){
+    .header-div{
+        display: block;
+        height: auto;
+    }
+    button.bar{
+        margin: 0 auto;
     }
 }
 
