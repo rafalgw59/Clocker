@@ -1,5 +1,9 @@
 <script type="text/javascript" src="scripts/TimeTracker.js"></script>
 <link rel="stylesheet" type="text/css" href="styles/time_tracker.css" />
+<link rel="stylesheet" href="style.css"/>
+<?php
+include_once 'header.php';
+?>
 
 <div class="tracker-wrapper">
     <div class="tracker">
