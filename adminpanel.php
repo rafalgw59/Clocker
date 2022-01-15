@@ -30,12 +30,12 @@ if(isset($data)){
 
         ?>
     <tr>
-        <td><?php echo $rows->usersId;?></td>
-        <td><?php echo $rows->usersLogin;?></td>
+        <td>ID: <?php echo $rows->usersId;?></td>
+        <td> Login: <?php echo $rows->usersLogin;?></td>
         <td><?php echo $rows->usersFirstName;?></td>
         <td><?php echo $rows->usersLastName; ?></td>
-        <td><?php echo $rows->usersEmail; ?></td>
-        <td><?php echo $rows->usersPassword;?></td>
+        <td>E-mail: <?php echo $rows->usersEmail; ?></td>
+        <td>Hasło: <?php echo $rows->usersPassword;?></td>
         <td>
             <form action="../controllers/Admins.php" method="post">
                 <input type="hidden" name="type" value="delete">
