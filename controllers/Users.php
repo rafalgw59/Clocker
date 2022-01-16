@@ -27,7 +27,6 @@ class Users
     {
         $this->users_password_repeat = $users_password_repeat;
     }
-
     public function __construct()
     {
         $this->user = new User();
@@ -114,6 +113,7 @@ class Users
     }
 
 
+
     public function register()
     {
         $userdata = new Users();
@@ -123,7 +123,9 @@ class Users
         $userdata->setUsersEmail($_POST['usersEmail']);
         $userdata->setUsersPassword($_POST['usersPassword']);
         $userdata->setUsersPasswordRepeat($_POST['repeatUsersPassword']);
-        //TODO Mozna dodac funkcje ktora by usuwała przypadkowe spacje
+        //Mozna dodac funkcje ktora by usuwała przypadkowe spacje
+
+        $wdf = 0; //flaga na błędy
 
         //Sprawdzanie czy któreś z pól jest puste
         $user_fields = [
@@ -138,7 +140,7 @@ class Users
         foreach ($user_fields as $key => $item) {
             if (empty($user_fields[$key])) {
                 checkInputs("register", "Wszystkie dane muszą być wypełnione");
-                $newURL = '../index.php?action=register';
+                $newURL = '../register.php';
                 header('Location: ' . $newURL);
                 exit();
             }
@@ -147,14 +149,14 @@ class Users
 
         if (preg_match('~[0-9]+~', $userdata->getUsersFirstName())) {
             checkInputs("register", "Wprowadzono nieprawidłowe imię - imię może zawierać tylko litery");
-            $newURL = '../index.php?action=register';
+            $newURL = '../register.php';
             header('Location: ' . $newURL);
             exit();
         }
 
         if (preg_match('~[0-9]+~', $userdata->getUsersLastName())) {
             checkInputs("register", "Wprowadzono nieprawidłowe nazwisko - imię może zawierać tylko litery");
-            $newURL = '../index.php?action=register';
+            $newURL = '../register.php';
             header('Location: ' . $newURL);
             exit();
         }
@@ -162,13 +164,13 @@ class Users
         //Sprawdzanie czy login zawiera tylko litery i cyfry oraz czy jest dłuższy niż 3 znaki
         if (strlen($userdata->getUsersLogin()) <= 3) {
             checkInputs("register", "Login użytkownika nie może być krótszy niż 3 znaki");
-            $newURL = '../index.php?action=register';
+            $newURL = '../register.php';
             header('Location: ' . $newURL);
             exit();
 
         } elseif (!preg_match("/^[a-zA-Z0-9]*$/", $userdata->getUsersLogin())) {
             checkInputs("register", "Login może zawierać tylko litery i cyfry");
-            $newURL = '../index.php?action=register';
+            $newURL = '../register.php';
             header('Location: ' . $newURL);
             exit();
         }
@@ -176,7 +178,7 @@ class Users
         //Sprawdzanie czy hasło ma minimum TYMCZASOWO 3 znaki TODO 8
         if (strlen($userdata->getUsersPassword()) <= 7) {
             checkInputs("register", "Hasło musi mieć 8 lub więcej znaków");
-            $newURL = '../index.php?action=register';
+            $newURL = '../register.php';
             header('Location: ' . $newURL);
             exit();
         }
@@ -184,7 +186,7 @@ class Users
         //Weryfikacja adresu email
         if (!preg_match("/^[_a-zA-Z0-9-]+(\.[_a-zA-Z0-9-]+)*@[a-zA-Z0-9-]+(\.[a-zA-Z0-9-]+)*(\.[a-zA-Z]{2,})$/", $userdata->getUsersEmail())) {
             checkInputs("register", "Wprowadzono niepoprawny adres e-mail");
-            $newURL = '../index.php?action=register';
+            $newURL = '../register.php';
             header('Location: ' . $newURL);
             exit();
         }
@@ -194,7 +196,7 @@ class Users
         $check_password = strval($userdata->getUsersPasswordRepeat());
         if (!preg_match("/^" . $check_password . "$/", $userdata->getUsersPassword())) {
             checkInputs("register", "Hasła nie są zgodne");
-            $newURL = '../index.php?action=register';
+            $newURL = '../register.php';
             header('Location: ' . $newURL);
             exit();
         }
@@ -202,7 +204,7 @@ class Users
         //Sprawdzanie czy user juz istnieje
         if ($this->user->checkIfUserExists($userdata->getUsersLogin(), $userdata->getUsersEmail())) {
             checkInputs("register", "Taki użytkownik już istnieje");
-            $newURL = '../index.php?action=register';
+            $newURL = '../register.php';
             header('Location: ' . $newURL);
             exit();
         }
@@ -214,12 +216,123 @@ class Users
 
         //Rejestracja usera
         if ($this->user->register($userdata)) {
-            $newURL = '../homepage.php';
+            $newURL = '../index.php';
             header('Location: ' . $newURL);
         } else {
             exit("Cos chyba poszlo nie tak");
         }
     }
+
+    public function update()
+    {
+        $userdata = new Users();
+        $userdata->setUsersFirstName($_POST['usersFirstName']);
+        $userdata->setUsersLastName($_POST['usersLastName']);
+        $userdata->setUsersLogin($_POST['usersLogin']);
+        $userdata->setUsersEmail($_POST['usersEmail']);
+        $userdata->setUsersPassword($_POST['usersPassword']);
+        $userdata->setUsersPasswordRepeat($_POST['repeatUsersPassword']);
+        //Mozna dodac funkcje ktora by usuwała przypadkowe spacje
+
+        $wdf = 0; //flaga na błędy
+
+        //Sprawdzanie czy któreś z pól jest puste
+        $user_fields = [
+            $userdata->getUsersFirstName(),
+            $userdata->getUsersLastName(),
+            $userdata->getUsersLogin(),
+            $userdata->getUsersEmail(),
+            $userdata->getUsersPassword(),
+            $userdata->getUsersPasswordRepeat()
+        ];
+
+        foreach ($user_fields as $key => $item) {
+            if (empty($user_fields[$key])) {
+                checkInputs("update", "Wszystkie dane muszą być wypełnione");
+                $newURL = '../profile.php';
+                header('Location: ' . $newURL);
+                exit();
+            }
+
+        }
+
+        if (preg_match('~[0-9]+~', $userdata->getUsersFirstName())) {
+            checkInputs("update", "Wprowadzono nieprawidłowe imię - imię może zawierać tylko litery");
+            $newURL = '../profile.php';
+            header('Location: ' . $newURL);
+            exit();
+        }
+
+        if (preg_match('~[0-9]+~', $userdata->getUsersLastName())) {
+            checkInputs("update", "Wprowadzono nieprawidłowe nazwisko - imię może zawierać tylko litery");
+            $newURL = '../profile.php';
+            header('Location: ' . $newURL);
+            exit();
+        }
+
+        //Sprawdzanie czy login zawiera tylko litery i cyfry oraz czy jest dłuższy niż 3 znaki
+        if (strlen($userdata->getUsersLogin()) <= 3) {
+            checkInputs("update", "Login użytkownika nie może być krótszy niż 3 znaki");
+            $newURL = '../profile.php';
+            header('Location: ' . $newURL);
+            exit();
+
+        } elseif (!preg_match("/^[a-zA-Z0-9]*$/", $userdata->getUsersLogin())) {
+            checkInputs("update", "Login może zawierać tylko litery i cyfry");
+            $newURL = '../profile.php';
+            header('Location: ' . $newURL);
+            exit();
+        }
+
+        //Sprawdzanie czy hasło ma minimum TYMCZASOWO 3 znaki TODO 8
+        if (strlen($userdata->getUsersPassword()) <= 7) {
+            checkInputs("update", "Hasło musi mieć 8 lub więcej znaków");
+            $newURL = '../profile.php';
+            header('Location: ' . $newURL);
+            exit();
+        }
+
+        //Weryfikacja adresu email
+        if (!preg_match("/^[_a-zA-Z0-9-]+(\.[_a-zA-Z0-9-]+)*@[a-zA-Z0-9-]+(\.[a-zA-Z0-9-]+)*(\.[a-zA-Z]{2,})$/", $userdata->getUsersEmail())) {
+            checkInputs("update", "Wprowadzono niepoprawny adres e-mail");
+            $newURL = '../profile.php';
+            header('Location: ' . $newURL);
+            exit();
+        }
+
+
+        //Sprawdzanie czy powtórzone hasło jest takie same
+        $check_password = strval($userdata->getUsersPasswordRepeat());
+        if (!preg_match("/^" . $check_password . "$/", $userdata->getUsersPassword())) {
+            checkInputs("update", "Hasła nie są zgodne");
+            $newURL = '../profile.php';
+            header('Location: ' . $newURL);
+            exit();
+        }
+
+        //Haszowanie hasła
+        //https://www.php.net/manual/en/function.password-hash.php
+        $userpasswd = $userdata->getUsersPassword();
+        $userdata->setUsersPassword(password_hash($userpasswd, PASSWORD_DEFAULT));
+
+        $session_attrs = array(
+            'usersFirstName',
+            'usersLastName'
+        );
+        foreach ($session_attrs as $value) {
+            unset($_SESSION[$value]);
+        }
+
+        //Aktualizacja usera
+        if ($this->user->update($userdata, $_SESSION['usersId'])) {
+            $_SESSION['usersLogin'] = $userdata->getUsersLogin();
+            $newURL = '../index.php';
+            header('Location: ' . $newURL);
+        } else {
+            exit("Cos chyba poszlo nie tak");
+        }
+    }
+
 
     public function login()
     {
@@ -236,7 +349,7 @@ class Users
         foreach ($user_fields as $key => $item) {
             if (empty($user_fields[$key])) {
                 checkInputs("login", "Wszystkie dane muszą być wypełnione");
-                $newURL = '../index.php?action=login';
+                $newURL = '../login.php';
                 header('Location: ' . $newURL);
                 exit();
             }
@@ -251,14 +364,15 @@ class Users
                 $this->newSession($logged);
             } else {
                 checkInputs("login", "Podano złe hasło");
-                $newURL = '../index.php?action=login';
+                $newURL = '../login.php';
                 header('Location: ' . $newURL);
                 exit();
             }
-        } //Jeśli użytkownika nie znaleziono...
+        }
+        //Jeśli użytkownika nie znaleziono...
         else {
             checkInputs("login", "Nie ma takiego użytkownika");
-            $newURL = '../index.php?action=login';
+            $newURL = '../login.php';
             header('Location: ' . $newURL);
             exit();
         }
@@ -278,8 +392,7 @@ class Users
         header('Location: ' . $newURL);
     }
 
-    public function deleteUser($user_id)
-    {
+    public function deleteUser($user_id){
         $this->user->deleteUser($user_id);
     }
 
@@ -297,6 +410,22 @@ class Users
         $newURL = '../index.php';
         header('Location: ' . $newURL);
     }
+
+    public function editUser()
+    {
+        $temp = $this->user->getUserData($_SESSION['usersId']);
+        $get_attrs = array(
+            'usersFirstName',
+            'usersLastName',
+        );
+        foreach ($get_attrs as $attr)
+        {
+            $_SESSION[$attr] = $temp->$attr;
+        }
+
+        $newURL = '../profile.php';
+        header('Location: ' . $newURL);
+    }
 }
 
 
@@ -307,10 +436,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $user->register();
     if ($_POST['type'] == 'login')
         $user->login();
+    if ($_POST['type'] == 'update')
+        $user->update();
     if ($_POST['type'] == 'deleteMe') {
         $user->deleteUser($_SESSION['usersId']);
         $user->destroySession();
     }
+    if ($_POST['type'] == 'editUser')
+        $user->editUser($user);
 }
 if (isset($_SESSION['usersId'])) {
     if ($_SERVER['REQUEST_METHOD'] == 'GET') {
