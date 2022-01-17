@@ -1,6 +1,6 @@
 <!--Header-->
 <?php
-include_once 'header.php';
+include_once __DIR__ .'header.php';
 //require_once '../helpers/View.php';
 ?>
 <head>
@@ -20,7 +20,7 @@ include_once 'header.php';
 <!--Wyświetlanie ogólnych statystyk (jeżeli user nie jest zalogowany) lub panel usera/admina (jeżeli user jest zalogowany)-->
 <?php
 if (!isset($_SESSION['usersId'])) {
-    include_once 'stats_for_everyone.php';
+    include_once __DIR__ .'stats_for_everyone.php';
 } else {
     if ($_SESSION['usersLogin'] == 'admin')
         include_once 'adminpanel.php';

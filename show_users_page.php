@@ -1,6 +1,6 @@
 
 <?php
-include_once 'header_admin.php';
+include_once __DIR__ .'header_admin.php';
 
 	if (isset($data))
     {?>
@@ -79,5 +79,5 @@ include_once 'header_admin.php';
     </table>
 </div>
 <?php
-include_once 'footer.php';
+include_once __DIR__ .'footer.php';
 ?>
