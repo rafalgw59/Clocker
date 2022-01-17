@@ -1,7 +1,8 @@
 <link rel="stylesheet" href="style.css"/>
-<nav>
+<!--<nav>-->
 <form method="post" action="controllers/Users.php">
     <input type="hidden" name="type" value="editUser">
-    <button id="logout-button" type="submit" name="submit"> Edytuj profil </button>
+    <button class="bar" onclick="window.location.href='?action=profile';"> Ustawienia</button>
+
 </form>
-</nav>
+<!--</nav>-->

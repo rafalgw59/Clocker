@@ -93,9 +93,8 @@ class User
             return false;
         }
     }
-
     public function getUserData($userId){
-        $this->database->query('SELECT usersId, usersFirstName, usersLastName, usersEmail FROM users WHERE usersId = 49');
+        $this->database->query('SELECT usersId, usersLogin, usersFirstName, usersLastName, usersEmail FROM users WHERE usersId = '.$userId); //angry emoji za to 49
         $this->database->execute();
         return $this->database->getOneResult();
     }
