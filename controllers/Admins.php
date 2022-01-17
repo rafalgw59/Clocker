@@ -1,7 +1,7 @@
 <?php
-require_once '../helpers/session.php';
-require_once '../helpers/View.php';
-require_once '../models/Admin.php';
+require_once __DIR__ .'../helpers/session.php';
+require_once __DIR__ .'../helpers/View.php';
+require_once __DIR__ .'../models/Admin.php';
 class Admins
 {
     private $admin;

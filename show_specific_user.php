@@ -1,4 +1,4 @@
-<form method="post" action="controllers/Admins.php">
+<form method="post" action="index.php?action=adminpanel">
     <input type="hidden" name="type" value="showSpecificUser">
     <label>
         <input type="text" name="userSearchInput" placeholder="Login lub Email">

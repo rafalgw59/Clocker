@@ -1,5 +1,5 @@
 <?php
-include 'header.php';
+include __DIR__ .'header.php';
 ?>
     <div id="contact-wrapper">
         <h1> Skontaktuj się z nami! </h1>
@@ -12,5 +12,5 @@ include 'header.php';
     </div>
 
 <?php
-include 'footer.php';
+include __DIR__ .'footer.php';
 ?>
