@@ -1,5 +1,5 @@
 <?php
-include __DIR__ .'header.php';
+include __DIR__ . '/header.php';
 ?>
     <link rel="stylesheet" href="style.css"/>
     <div id="about-us-wrapper">
@@ -14,5 +14,5 @@ include __DIR__ .'header.php';
     </div>
 
 <?php
-include __DIR__ .'footer.php';
+include __DIR__ . '/footer.php';
 ?>

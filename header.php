@@ -7,7 +7,7 @@
 
     <?php
     if (isset($_SESSION['usersId'])) {
-        include_once __DIR__ .'edit_user.php';
+        include_once __DIR__ . '/edit_user.php';
     }
     ?>
 </div>

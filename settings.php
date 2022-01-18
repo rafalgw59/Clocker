@@ -1,7 +1,7 @@
 
 <?php
-include_once __DIR__ .'header.php';
-include_once __DIR__ .'/helpers/validate_inputs.php';
+include_once __DIR__ . '/header.php';
+include_once __DIR__ . '/helpers/validate_inputs.php';
 ?>
 <h1 style="color:white; text-align:center;">Edytuj profil!</h1>
 <form class="forms" method="post" action="controllers/Users.php">
@@ -39,5 +39,5 @@ include_once __DIR__ .'/helpers/validate_inputs.php';
     <button type="submit" name="submit"> Zaktualizuj profil!</button>
 </form>
 <?php
-include_once __DIR__ .'footer.php'
+include_once __DIR__ . '/footer.php'
 ?>
