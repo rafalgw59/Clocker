@@ -1,7 +1,7 @@
 <?php
-require_once __DIR__ .'../models/User.php';
-require_once __DIR__ .'../helpers/session.php';
-require_once __DIR__ .'../helpers/validate_inputs.php';
+require_once __DIR__ . '/../models/User.php';
+require_once __DIR__ . '/../helpers/session.php';
+require_once __DIR__ . '/../helpers/validate_inputs.php';
 
 class Users
 {
@@ -378,8 +378,9 @@ class Users
         foreach ($session_attrs as $value) {
             $_SESSION[$value] = $user->$value;
         }
-        $newURL = __DIR__ .'../index.php';
+        $newURL =  '../index.php';
         header('Location: ' . $newURL);
+        echo __DIR__;
     }
 
     public function deleteUser($user_id)

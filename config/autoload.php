@@ -1,13 +1,11 @@
 <?php
 
 spl_autoload_register(function($className){
-    $file = __DIR__. $className . ".php";
+    $file = __DIR__ . $className . ".php";
 
     if(file_exists($file)){
         include $file;
-        if(class_exists($className)) {
-            return true;
-        }
+        return true;
     }
     return false;
 

@@ -1,6 +1,6 @@
 <?php
-include_once __DIR__ .'header.php';
-include_once __DIR__ .'/helpers/validate_inputs.php';
+include_once __DIR__ . '/header.php';
+include_once __DIR__ . '/helpers/validate_inputs.php';
 ?>
 
     <h1 style="color:white; text-align:center;">Zarejestruj się!</h1>
@@ -44,5 +44,5 @@ include_once __DIR__ .'/helpers/validate_inputs.php';
 
 
 <?php
-include_once __DIR__ .'footer.php'
+include_once __DIR__ . '/footer.php'
 ?>

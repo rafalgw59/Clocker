@@ -6,25 +6,10 @@
     <!--Szukanie usera po loginie -->
     <p id="search-user-p">Szukanie usera:</p>
     <?php
-    include_once __DIR__ . 'show_specific_user.php';
-
-//print_r($_POST);
-//print_r($_SESSION);
-//print_r($_SERVER);
-
-
-/*
-if(isset($_POST['submit'])) {
-    if (empty($_POST['userSearchInput'])) {
-        echo "bro";
-    }
-    $searchInput = $_POST['userSearchInput'];
-    //echo $searchInput;
+    include_once __DIR__ . '/show_specific_user.php';
 
 
 
-}
-*/
     if (isset($_REQUEST['userSearchInput'])) {
         require_once __DIR__ . '/models/Admin.php';
         $model = new Admin();
@@ -60,8 +45,8 @@ if(isset($_POST['submit'])) {
 
 <!-- Pokaz wszystkich userow -->
 <?php
-include_once 'show_users.php';
-include_once 'logout.php';
+include_once __DIR__ . '/show_users.php';
+include_once __DIR__ . '/logout.php';
 ?>
 
 <!--Wglad w dane usera -->
