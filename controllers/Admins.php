@@ -33,7 +33,9 @@ class Admins
 
 
 
-        $this->view('show_users_page',$rows);
+        //$this->view('show_users_page',$rows);
+        $newURL = '../index.php?action=show_users_page';
+        header('Location:' . $newURL);
 
 
 
