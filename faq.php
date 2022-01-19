@@ -12,7 +12,7 @@ include 'header.php';
         <h3> A: Nie za bardzo, ale się staramy.</h3>
 
         <h2> Q: Od którego roku prowadzicie działalność?</h2>
-        <h3> A: Od 1970.</h3>
+        <h3> A: Od 1972.</h3>
 
         <h2> Q: Jak długo trzeba czekać na wykonanie przez was usługi?</h2>
         <h3> A: Tak długo, ile będzie trzeba.</h3>

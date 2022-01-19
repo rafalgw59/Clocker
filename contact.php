@@ -6,9 +6,9 @@ include 'header.php';
 
         <img src="contact_graphic.svg" id="contact-graphic" width="300px">
 
-        <h2>deltaszwadron@alfa.pl </h2>
+        <h2 style="font-weight: bold">sekretariat@deltaszwadronsupercoolkomandowilkowalfa.pl </h2>
 
-        <h2>+48 21 37 21 372 </h2>
+        <h2 style="font-weight: bold">+90 534 604 6981 </h2>
     </div>
 
 <?php

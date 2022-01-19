@@ -43,6 +43,24 @@ class User
         }
     }
 
+    public function update($userdata, $usersId): bool
+    {
+        $this->database->query('UPDATE users SET usersFirstName = :usersfirstname, usersLastName = :userslastname, usersLogin = :userslogin, usersEmail = :usersemail, usersPassword = :userspassword
+        WHERE usersId = :usersid');
+        $this->database->bind(':usersfirstname', $userdata->getUsersFirstName());
+        $this->database->bind(':userslastname', $userdata->getUsersLastName());
+        $this->database->bind(':userslogin', $userdata->getUsersLogin());
+        $this->database->bind(':usersemail', $userdata->getUsersEmail());
+        $this->database->bind(':userspassword', $userdata->getUsersPassword());
+        $this->database->bind(':usersid', $usersId);
+
+        if ($this->database->execute()) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
     public function login($usersLogin, $passwd)
     {
         $row = $this->checkIfUserExists($usersLogin, $usersLogin);
@@ -74,5 +92,10 @@ class User
         else{
             return false;
         }
+    }
+    public function getUserData($userId){
+        $this->database->query('SELECT usersId, usersLogin, usersFirstName, usersLastName, usersEmail FROM users WHERE usersId = '.$userId); //angry emoji za to 49
+        $this->database->execute();
+        return $this->database->getOneResult();
     }
 }
