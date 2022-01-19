@@ -1,25 +1,9 @@
 
 <?php
-include_once 'header_admin.php';
-
-	if (isset($data))
-    {?>
-        <ul>
-            <?php
-
-            {?>
-                <?php print_r(array_values($data));
-                    print_r($_POST);
-                foreach ($data as $value){
-                    echo $value->usersFirstName;
-                }
-
-
-                ?>
-            <?php } ?>
-        </ul>
-
-    <?php } ?>
+include_once __DIR__ . '/header.php';
+require_once __DIR__ . '/models/Admin.php';
+//todo dorobic css
+?>
 
 
 <div class="container">
@@ -40,6 +24,8 @@ include_once 'header_admin.php';
         <tbody>
         <?php
 
+        $model = new Admin();
+        $data = $model->showAllUsers();
             foreach($data as $rows) {
 
 
@@ -54,7 +40,7 @@ include_once 'header_admin.php';
 
 
                     <td>
-                        <form action="../controllers/Admins.php" method="post">
+                        <form action="controllers/Admins.php" method="post">
                             <input type="hidden" name="type" value="delete">
                             <button type="submit" name="user_delete" value="<?php echo $rows->usersId;?>">Delete</button>
                         </form>
@@ -79,5 +65,5 @@ include_once 'header_admin.php';
     </table>
 </div>
 <?php
-include_once 'footer.php';
+include_once __DIR__ .'/footer.php';
 ?>

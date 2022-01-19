@@ -2,7 +2,7 @@
 <link rel="stylesheet" type="text/css" href="styles/time_tracker.css" />
 <link rel="stylesheet" href="style.css"/>
 <?php
-include_once 'header.php';
+include_once __DIR__ .'/header.php';
 ?>
 
 <div class="tracker-wrapper">

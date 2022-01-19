@@ -1,1 +1,1 @@
-<a href="http://localhost/mvclocker/adminpanel.php">Strona Główna</a>
+<a href="index.php?action=adminpanel.php">Strona Główna</a>

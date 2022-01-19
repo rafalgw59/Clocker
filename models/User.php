@@ -1,6 +1,6 @@
 <?php
-require_once '../libraries/Database.php';
-require_once '../config/config.php';
+require_once __DIR__ . '/../libraries/Database.php';
+require_once __DIR__ . '/../config/config.php';
 
 class User
 {

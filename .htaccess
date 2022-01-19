@@ -1,5 +1,6 @@
-RewriteEngine On
-RewriteRule . /front-controller.php [L]
+#RewriteEngine On
+#RewriteRule . /front-controller.php [L]
 
-RewriteRule ^login$ index.php?action=login [L]
+#RewriteRule ^login$ index.php?action=login [L]
 #no cos nie działa
+#do wywalenia to

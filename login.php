@@ -1,6 +1,6 @@
 <?php
-include_once 'header.php';
-include_once './helpers/validate_inputs.php';
+include_once __DIR__ . '/header.php';
+include_once __DIR__ . '/helpers/validate_inputs.php';
 ?>
 
 <form class="forms" method="post" action="controllers/Users.php">
@@ -25,8 +25,9 @@ include_once './helpers/validate_inputs.php';
 <h3 style="padding-top: 30px; text-align:center;"> Nie masz jeszcze konta? <a href="register.php"> Zarejestruj się! </a>
 </h3>
 
+
 <?php
-include_once 'footer.php'
+include_once __DIR__ . '/footer.php'
 ?>
 
 
