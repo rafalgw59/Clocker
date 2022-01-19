@@ -379,4 +379,15 @@ input{
         margin: 0 auto;
     }
 }
+#topsecret{
+    position: absolute;
+    top:80px;
+    left: 0;
 
+
+}
+#topsecret2{
+    position: absolute;
+    top:80px;
+    right:0;
+}
