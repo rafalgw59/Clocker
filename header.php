@@ -5,7 +5,11 @@
     <button class="bar" onclick="window.location.href='?action=contact';"> Contact </button>
     <button class="bar" onclick="window.location.href='?action=faq';"> FAQ </button>
 
-
+    <?php
+    if (isset($_SESSION['usersId'])) {
+        include_once 'edit_user.php';
+    }
+    ?>
 </div>
 
 

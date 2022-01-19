@@ -1,4 +1,3 @@
-
 <?php
 include_once 'header.php';
 include_once './helpers/validate_inputs.php';
@@ -41,3 +40,4 @@ include_once './helpers/validate_inputs.php';
 <?php
 include_once 'footer.php'
 ?>
+

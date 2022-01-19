@@ -22,8 +22,8 @@ switch (( array_key_exists( 'action', $_REQUEST) ? $_REQUEST['action'] : "" )) {
     case 'faq':
         require './faq.php';
         break;
-    case 'settings':
-        require './settings.php';
+    case 'profile':
+        require './profile.php';
         break;
     case 'show_specific_user':
         require './show_specific_user.php';
