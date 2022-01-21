@@ -1,4 +1,5 @@
 <?php
+require_once __DIR__ . '/../models/Task.php';
 require_once __DIR__ . '/../models/User.php';
 require_once __DIR__ . '/../helpers/session.php';
 require_once __DIR__ . '/../helpers/validate_inputs.php';
@@ -31,6 +32,7 @@ class Users
     public function __construct()
     {
         $this->user = new User();
+        $this->task = new Task();
     }
 
     /**
@@ -421,8 +423,60 @@ class Users
         $newURL = '../index.php?action=profile';
         header('Location: ' . $newURL);
     }
-}
 
+    public function getTasks()
+    {
+        $_SESSION['tasks'] = $this->task->getTasks();
+        echo $_SESSION['tasks'];
+        $newURL = '../index.php?action=tasks';
+        header('Location: ' . $newURL);
+    }
+
+    public function addTask()
+    {
+        $task_fields = [
+            $_POST['taskName'],
+            $_POST['projectName'],
+            $_POST['startDate'],
+            $_POST['endDate'],
+            $_SESSION['usersId']
+        ];
+        foreach ($task_fields as $key => $item) {
+            if (empty($task_fields[$key])) {
+                checkInputs("task", "Wszystkie dane muszą być wypełnione");
+                $newURL = '../index.php?action=tasks';
+                header('Location: ' . $newURL);
+                exit();
+            }
+        }
+        if ($this->task->checkIfTaskExists($task_fields[0], $task_fields[1])) {
+            checkInputs("task", "Taki task już istnieje");
+            $newURL = '../index.php?action=tasks';
+            header('Location: ' . $newURL);
+            exit();
+        }
+        if ($this->task->addTask($task_fields)) {
+            $_SESSION['tasks'] = $this->task->getTasks();
+            echo $_SESSION['tasks'];
+            $newURL = '../index.php?action=tasks';
+            header('Location: ' . $newURL);
+        } else {
+            exit("Cos chyba poszlo nie tak");
+        }
+    }
+
+    public function removeTask()
+    {
+        if ($this->task->removeTask($_POST["taskId"])) {
+            $_SESSION['tasks'] = $this->task->getTasks();
+            echo $_SESSION['tasks'];
+            $newURL = '../index.php?action=tasks';
+            header('Location: ' . $newURL);
+        } else {
+            exit("Cos chyba poszlo nie tak");
+        }
+    }
+}
 
 $user = new Users();
 
@@ -439,11 +493,19 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     }
     if ($_POST['type'] == 'editUser')
         $user->editUser($user);
+    if ($_POST['type'] == 'addTask')
+        $user->addTask();
+    if ($_POST['type'] == 'removeTask')
+        $user->removeTask();
 }
+
 if (isset($_SESSION['usersId'])) {
     if ($_SERVER['REQUEST_METHOD'] == 'GET') {
         if ($_GET['type'] == 'logout') {
             $user->destroySession();
+        }
+        if ($_GET['type'] == 'getTasks') {
+            $user->getTasks();
         }
     }
 }
