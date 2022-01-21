@@ -1,0 +1,20 @@
+.task-filter{
+    position: relative;
+    width: 100%;
+}
+
+.task-remover{
+    display:inline-block;
+}
+
+.text-input{
+    color: white;
+}
+
+.sorter-btn{
+    display: inline-block;
+}
+
+.hidden{
+    display: none;
+}

@@ -28,6 +28,9 @@ switch (( array_key_exists( 'action', $_REQUEST) ? $_REQUEST['action'] : "" )) {
     case 'show_users_page':
         require './show_users_page.php';
         break;
+    case 'tasks':
+        require './tasks_view.php';
+        break;
     default:
         require './homepage.php';
         break;
